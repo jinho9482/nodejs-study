@@ -1,17 +1,8 @@
-// 아래와 같은 global object는 browser에서는 전부 window object에 속했다.
-// 하지만 node에서는 전부 global object에 속한다.
+// const logger = require("./logger"); // returns object exported from logger, actually, it returns exports: {} object in json object, when we execute console.log(module)
 
-// console.log(); // global object
+// console.log(logger);
+// logger.log("Hi");
 
-// setTimeout();
-// clearTimeout();
-
-// setInterval();
-// clearInterval();
-
-// (window.)console.log // js engine이 window.를 자동으로 넣는다.
-
-var message = "Hi"; // global scope
-
-console.log(window.message); // Hi in browser
-console.log(global.message); // undefined in node
+const log = require("./logger");
+console.log(log);
+// log("hi");
