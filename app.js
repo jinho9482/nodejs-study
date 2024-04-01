@@ -1,10 +1,16 @@
-// const logger = require("./logger"); // returns object exported from logger, actually, it returns exports: {} object in json object, when we execute console.log(module)
+// path module
 
-// console.log(logger);
-// logger.log("Hi");
+const path = require("path");
 
-const logger = require("./logger"); // return module.exports of logger.js, not of app.js
-logger.log("hi");
-console.log(module.exports);
-console.log(logger);
-// log("hi");
+var pathObj = path.parse(__filename); // returns an object whose properties represent significant elements of the __filename
+
+console.log(pathObj);
+
+// returns:
+// {
+//     root: 'C:\\',
+//     dir: 'C:\\nodejs-study',
+//     base: 'app.js',
+//     ext: '.js',
+//     name: 'app'
+//   }
