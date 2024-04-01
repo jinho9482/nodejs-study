@@ -1,10 +1,21 @@
+// module wrapper function
+// function (exports, require, module, __filename, __dirname) {
+
+// console.log(exports);
+// console.log(require);
+// console.log(module);
+// console.log(__filename); // C:\nodejs-study\logger.js
+// console.log(__dirname); // C:\nodejs-study
+
 var url = "http://mylogger.io/log";
 
 function log(message) {
-  // Send an HTTP request
   console.log(message);
 }
 
-// module.exports.log = log; // export log function as a property
-module.exports = log; // Can export only function
-// module.exports.endPoint = url; // Export url as a name of endPoint
+// exports.log = log;
+// module.exports = log;
+exports = log;
+console.log(module);
+
+// };

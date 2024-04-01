@@ -3,6 +3,8 @@
 // console.log(logger);
 // logger.log("Hi");
 
-const log = require("./logger");
-console.log(log);
+const logger = require("./logger"); // return module.exports of logger.js, not of app.js
+logger.log("hi");
+console.log(module.exports);
+console.log(logger);
 // log("hi");
