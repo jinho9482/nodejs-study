@@ -1,8 +1,8 @@
 const EventEmitter = require("events");
-const emitter = new EventEmitter();
 
+const Logger = require("./logger");
+const logger = new Logger();
 // Register a listener
-emitter.on("messageLogged", () => console.log("Listner called")); // event보다 먼저 있어야 한다.
+logger.on("messageLogged", (e) => console.log("Listner called", e)); // event보다 먼저 있어야 한다.
 
-// Raise an event
-emitter.emit("messageLogged");
+logger.log("message");
