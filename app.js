@@ -1,8 +1,21 @@
-const EventEmitter = require("events");
+const http = require("http");
 
-const Logger = require("./logger");
-const logger = new Logger();
-// Register a listener
-logger.on("messageLogged", (e) => console.log("Listner called", e)); // event보다 먼저 있어야 한다.
+const server = http.createServer((req, res) => {
+  if (req.url === "/") {
+    res.write("Hello World");
+    res.end();
+  }
 
-logger.log("message");
+  if (req.url === "/api/course") {
+    res.write(JSON.stringify([1, 2, 3]));
+    res.end();
+  }
+});
+
+// server.on("connection", (socket) => {
+//   console.log("New connection...");
+// });
+
+server.listen(3000);
+
+console.log("Listening on port 3000...");
