@@ -1,10 +1,9 @@
-// Node 를 통해 os, file system, network 의 정보도 얻을 수 있다.
-// 기존의 js는 browser에서 움직였기 때문에 window(document)의 정보만 얻을 수 있었다.
+const fs = require("fs");
 
-const os = require("os");
+// const files = fs.readdirSync("./");
+// console.log(files);
 
-let totalMemory = os.totalmem();
-let freeMemory = os.freemem();
-
-console.log(`Total Memory: ${totalMemory}`);
-console.log(`Free Memory: ${freeMemory}`);
+fs.readdir("$", function (err, files) {
+  if (err) console.log("Error", err);
+  else console.log("Result", files);
+});
